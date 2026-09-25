@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Place Your Order - MSA Sweets and Snacks</title>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-orange: #fe932c;
+            --dark-brown: #260f07;
+            --light-brown: #3e2319;
+            --tan: #904d00;
+            --cream: #fdf9f3;
+            --light-cream: #f7f3ed;
+            --beige: #ebe8e2;
+            --text-dark: #504440;
+            --text-light: #9ca3af;
+        }
+
+        html, body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        body {
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(253, 249, 243, 0.9);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 20px -4px rgba(62, 35, 25, 0.06);
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 48px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-image {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark-brown);
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 4px;
+            background: var(--light-cream);
+            padding: 4px;
+            border-radius: 9999px;
+        }
+
+        .nav a {
+            padding: 4px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .nav a:first-child {
+            background: var(--light-brown);
+            color: white;
+        }
+
+        .nav a:hover {
+            background: var(--light-cream);
+        }
+
+        .header-right {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .header-phone {
+            color: var(--tan);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: #663500;
+            padding: 4px 24px;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .menu-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--dark-brown);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* ===== TOP NOTIFICATION ===== */
+        .top-notification {
+            background: var(--beige);
+            padding: 10px 48px;
+            text-align: center;
+            margin-top: 80px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .main-content {
+            min-height: calc(100vh - 80px);
+            padding-top: 100px;
+            padding-bottom: 40px;
+        }
+
+        .page-header {
+            background: white;
+            padding: 40px 48px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        /* ===== SIGN-IN SECTION ===== */
+        .signin-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 48px;
+        }
+
+        .signin-card {
+            background: white;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .signin-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+        }
+
+        .signin-card p {
+            color: var(--text-dark);
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .signin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark-brown);
+        }
+
+        .form-label .required {
+            color: #ba1a1a;
+        }
+
+        .form-input, .form-select {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 14px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--dark-brown);
+        }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 3px rgba(254, 147, 44, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-light);
+        }
+
+        .signin-btn {
+            background: var(--primary-orange);
+            color: #663500;
+            padding: 14px 40px;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .signin-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .signin-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ===== ORDER SECTION ===== */
+        .order-section {
+            display: none;
+            background: white;
+            padding: 40px 192px;
+        }
+
+        .order-section.visible {
+            display: block;
+        }
+
+        .order-form-card {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .form-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--dark-brown);
+            margin-bottom: 4px;
+        }
+
+        .form-header p {
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .form-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .form-section-header {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-number {
+            width: 24px;
+            height: 24px;
+            background: var(--dark-brown);
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 10px;
+        }
+
+        .section-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--dark-brown);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            width: 100%;
+        }
+
+        .form-row.order-details-row {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .delivery-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .delivery-option {
+            background: white;
+            padding: 16px;
+            border-radius: 12px;
+            border: 2px solid #e5e7eb;
+            cursor: pointer;
+            display: flex;
+            gap: 12px;
+            transition: all 0.3s;
+        }
+
+        .delivery-option:hover {
+            border-color: var(--primary-orange);
+        }
+
+        .delivery-option.selected {
+            border-color: var(--primary-orange);
+            background: rgba(254, 147, 44, 0.05);
+        }
+
+        .radio-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-input input[type="radio"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .delivery-option-text h4 {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark-brown);
+            margin-bottom: 4px;
+        }
+
+        .delivery-option-text p {
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .delivery-address-group {
+            display: none;
+        }
+
+        .delivery-address-group.visible {
+            display: flex;
+        }
+
+        .delivery-address {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .submit-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .submit-btn {
+            background: var(--primary-orange);
+            color: #663500;
+            padding: 14px 40px;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .form-disclaimer {
+            font-size: 12px;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .success-message {
+            display: none;
+            background: #d1e7dd;
+            color: #0d3622;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .success-message.visible {
+            display: block;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #842029;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .error-message.visible {
+            display: block;
+        }
+
+        .back-home-container {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .back-home-container.visible {
+            display: block;
+        }
+
+        .back-home-btn {
+            background: var(--primary-orange);
+            color: #663500;
+            padding: 14px 40px;
+            border-radius: 9999px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .back-home-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .back-to-home-link {
+            display: inline-block;
+            margin-top: 16px;
+            text-decoration: none;
+            color: var(--tan);
+            font-weight: 600;
+        }
+
+        .back-to-home-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-brown);
+            color: white;
+            padding: 40px 48px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 24px;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-col-1 .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .footer-tagline {
+            font-style: italic;
+            color: #eabdad;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .footer-description {
+            font-size: 12px;
+            color: #d4d4d4;
+            margin-bottom: 8px;
+        }
+
+        .footer-section-title {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            margin-top: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #d4d4d4;
+            text-decoration: none;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-location {
+            margin-top: 8px;
+            font-size: 12px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: #d4d4d4;
+            display: flex;
+            justify-content: space-between;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .header-content {
+                padding: 0 20px;
+            }
+
+            .order-section {
+                padding: 40px 20px;
+            }
+
+            .signin-card {
+                margin: 0 20px;
+            }
+
+            .form-row.order-details-row {
+                grid-template-columns: 1fr;
+            }
+
+            .delivery-options {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .page-header {
+                padding: 40px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav {
+                display: none;
+            }
+
+            .btn-primary {
+                font-size: 12px;
+                padding: 4px 16px;
+            }
+
+            .page-header h1 {
+                font-size: 24px;
+            }
+
+            .signin-card {
+                padding: 24px;
+                margin: 0 20px;
+            }
+
+            .order-form-card {
+                padding: 24px;
+            }
+
+            .form-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .delivery-options {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+</style>
+</head>
+<body>
+<!-- HEADER -->
+<header>
+<div class="header-content">
+<a class="logo-section" href="index.html#home">
+<div class="logo-image">🏡</div>
+<div class="logo-text">
+<h1>MSA</h1>
+<p>Sweets & Snacks</p>
+</div>
+</a>
+<nav class="nav">
+<a href="index.html#home">Home</a>
+<a href="index.html#what-we-do">Services</a>
+<a href="index.html#our-snacks">Snacks</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+<div class="header-right">
+<span class="header-phone">☎️ 9446347026</span>
+<a class="btn-primary" href="index.html#our-snacks">Back to Home</a>
+<div class="menu-icon">☰</div>
+</div>
+</div>
+</header>
+
+<!-- TOP NOTIFICATION -->
+<div class="top-notification">
+🎉 Fresh Kerala Snacks • Made on Demand • Direct from Kitchen • Delivery or Pickup Available
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+<h1>Place Your Order</h1>
+<p>Get fresh snacks delivered or pick up from our kitchen</p>
+</div>
+
+<!-- SIGN-IN SECTION -->
+<div class="signin-section" id="signinSection">
+<div class="signin-card">
+<h2>Sign In to Place Your Order</h2>
+<p>Enter your details to get started with your order</p>
+<div class="signin-form">
+<div class="form-group">
+<label class="form-label">Full Name <span class="required">*</span></label>
+<input class="form-input" id="signinName" placeholder="Enter your name" type="text" required/>
+</div>
+<div class="form-group">
+<label class="form-label">Email Address <span class="required">*</span></label>
+<input class="form-input" id="signinEmail" placeholder="Enter your email" type="email" required/>
+</div>
+<div class="form-group">
+<label class="form-label">Phone Number <span class="required">*</span></label>
+<input class="form-input" id="signinPhone" placeholder="Enter your phone number" type="tel" required/>
+</div>
+<button class="signin-btn" id="signinBtn" type="button">Sign In</button>
+</div>
+</div>
+</div>
+
+<!-- ORDER SECTION -->
+<section class="order-section" id="orderSection">
+<div class="container">
+<div class="order-form-card">
+<div class="form-header">
+<div>
+<h3>Complete Your Order</h3>
+<p>Freshly cooked on demand for delivery or pickup</p>
+</div>
+<div class="form-icon">📋</div>
+</div>
+<form id="orderForm">
+<div class="success-message" id="successMsg">
+                        ✓ Order Request Sent Successfully!<br/><span style="font-weight: 500;">Thank you for your order request. We will contact you shortly to confirm your order.</span>
+</div>
+<div class="error-message" id="errorMsg">
+                        ✗ Please fill in all required fields.
+                    </div>
+
+<!-- SECTION 1: CUSTOMER DETAILS (READ-ONLY) -->
+<div class="form-section">
+<div class="form-section-header">
+<div class="section-number">1</div>
+<div class="section-name">Your Details</div>
+</div>
+<div class="form-row">
+<div class="form-group">
+<label class="form-label">Full Name</label>
+<input class="form-input" id="name" readonly type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label">Email Address</label>
+<input class="form-input" id="email" readonly type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label">Phone Number</label>
+<input class="form-input" id="phone" readonly type="tel"/>
+</div>
+</div>
+</div>
+
+<!-- SECTION 2: ORDER DETAILS -->
+<div class="form-section">
+<div class="form-section-header">
+<div class="section-number">2</div>
+<div class="section-name">Order Details</div>
+</div>
+<div class="form-row order-details-row">
+<div class="form-group">
+<label class="form-label">Select Item <span class="required">*</span></label>
+<div style="position: relative;">
+<select class="form-select" id="item" required="">
+<option value="">Select an item</option>
+<option value="Samosa">Samosa</option>
+<option value="Ulunthu Vada">Ulunthu Vada</option>
+<option value="Parippu Vada">Parippu Vada</option>
+<option value="Bonda">Bonda</option>
+<option value="Neyyappam">Neyyappam</option>
+</select>
+<span style="position: absolute; right: 12px; top: 14px; pointer-events: none;">▼</span>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label">Quantity <span class="required">*</span></label>
+<input class="form-input" id="quantity" min="1" placeholder="e.g., 10, 25, 50" required="" type="number"/>
+</div>
+<div class="form-group">
+<label class="form-label">Required Date <span class="required">*</span></label>
+<input class="form-input" id="date" required="" type="date"/>
+</div>
+</div>
+</div>
+
+<!-- SECTION 3: DELIVERY METHOD -->
+<div class="form-section">
+<div class="form-section-header">
+<div class="section-number">3</div>
+<div class="section-name">How would you like to receive your order?</div>
+</div>
+<div class="delivery-options">
+<label class="delivery-option selected">
+<div class="radio-input">
+<input checked="" name="delivery" type="radio" value="Self Pickup"/>
+</div>
+<div class="delivery-option-text">
+<h4>Self Pickup</h4>
+<p>Pick up hot snacks directly from our kitchen in Malambara, Thadiyoor</p>
+</div>
+</label>
+<label class="delivery-option">
+<div class="radio-input">
+<input name="delivery" type="radio" value="Delivery"/>
+</div>
+<div class="delivery-option-text">
+<h4>Delivery</h4>
+<p>Delivered directly to your home, bakery, or event location</p>
+</div>
+</label>
+</div>
+<div class="form-group delivery-address-group" id="deliveryAddressGroup">
+<label class="form-label" for="address">
+                                Delivery Address <span class="required">*</span>
+</label>
+<textarea class="form-input delivery-address" id="address" placeholder="Enter your complete delivery address" rows="4"></textarea>
+</div>
+</div>
+
+<!-- SUBMIT -->
+<div class="submit-section">
+<button class="submit-btn" id="submitBtn" type="submit">🎯 Send Order Request</button>
+<div class="form-disclaimer">
+                            We will contact you on the provided phone number to confirm the availability, quantity, delivery details, and order timing.
+                        </div>
+</div>
+</form>
+</div>
+
+<!-- BACK TO HOME AFTER SUCCESS -->
+<div class="back-home-container" id="backHomeContainer">
+<h2 style="font-family: 'Playfair Display', serif; font-size: 28px; color: var(--dark-brown); margin-bottom: 16px;">Thank You!</h2>
+<p style="color: var(--text-dark); margin-bottom: 24px;">Your order request has been successfully submitted. We will contact you shortly to confirm the details.</p>
+<a class="back-home-btn" href="index.html#our-snacks">Back to Home</a>
+</div>
+
+</div>
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-col-1">
+<div class="footer-logo">MSA SWEETS AND SNACKS</div>
+<div class="footer-tagline">"Freshly Made. Carefully Prepared."</div>
+<p class="footer-description">We prepare fresh sweets and snacks for direct customers, bakeries, hotels, and bulk orders.</p>
+<p class="footer-location">📍 Serving Pathanamthitta District, Kerala</p>
+</div>
+<div class="footer-col-2">
+<div class="footer-section-title">Our Daily Specialities</div>
+<p class="footer-description">Samosa • Ulunthu Vada • Parippu Vada • Bonda • Neyyappam</p>
+<div style="margin-top: 8px;">
+<div class="footer-section-title">Direct Contact &amp; Kitchen</div>
+<p class="footer-description">Chandra Sekar</p>
+<p class="footer-description"><strong>Phone:</strong> 9446347026</p>
+<p class="footer-description">Lakshmi Nivas, Malambara, Thadiyoor P.O., Pathanamthitta, Kerala – 689545</p>
+</div>
+</div>
+<div class="footer-col-3">
+<div class="footer-section-title">Quick Links</div>
+<div class="footer-links">
+<a href="index.html#home">Home</a>
+<a href="index.html#what-we-do">What We Do</a>
+<a href="index.html#our-snacks">Our Snacks</a>
+<a href="order.html">Order Now</a>
+<a href="index.html#contact">Contact</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© 2026 MSA Sweets and Snacks. All Rights Reserved.</span>
+<span style="font-style: italic;">Central Travancore Culinary Heritage</span>
+</div>
+</div>
+</footer>
+
+<iframe id="googleSheetsSubmitFrame" name="googleSheetsSubmitFrame" style="display:none;width:0;height:0;border:0;"></iframe>
+
+<script>
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyg66yZnAFcgFmIJWTaRYBGV4x-Mk43ISlqdow7uvE_Nbj7wO1Nt8oj0zw-QTmj915u/exec';
+
+        // Get URL parameter for pre-selected item
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedItem = urlParams.get('item');
+
+        // Sign-in logic
+        const signinBtn = document.getElementById('signinBtn');
+        const signinName = document.getElementById('signinName');
+        const signinEmail = document.getElementById('signinEmail');
+        const signinPhone = document.getElementById('signinPhone');
+        const signinSection = document.getElementById('signinSection');
+        const orderSection = document.getElementById('orderSection');
+
+        signinBtn.addEventListener('click', function() {
+            const name = signinName.value.trim();
+            const email = signinEmail.value.trim();
+            const phone = signinPhone.value.trim();
+
+            if (!name || !email || !phone) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Store sign-in details
+            window.customerDetails = { name, email, phone };
+
+            // Hide sign-in, show order form
+            signinSection.style.display = 'none';
+            orderSection.classList.add('visible');
+
+            // Populate customer details in read-only fields
+            document.getElementById('name').value = name;
+            document.getElementById('email').value = email;
+            document.getElementById('phone').value = phone;
+
+            // Pre-select item if URL parameter exists
+            if (selectedItem) {
+                document.getElementById('item').value = selectedItem;
+            }
+
+            // Scroll to form
+            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Allow Enter key to sign in
+        signinPhone.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                signinBtn.click();
+            }
+        });
+
+        // Order form handling
+        const form = document.getElementById('orderForm');
+        const successMsg = document.getElementById('successMsg');
+        const errorMsg = document.getElementById('errorMsg');
+        const submitBtn = document.getElementById('submitBtn');
+        const backHomeContainer = document.getElementById('backHomeContainer');
+
+        // Delivery option styling + conditional address field
+        const deliveryAddressGroup = document.getElementById('deliveryAddressGroup');
+        const addressInput = document.getElementById('address');
+
+        document.querySelectorAll('input[name="delivery"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.delivery-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                this.closest('.delivery-option').classList.add('selected');
+
+                if (this.value === 'Delivery') {
+                    deliveryAddressGroup.classList.add('visible');
+                    addressInput.required = true;
+                } else {
+                    deliveryAddressGroup.classList.remove('visible');
+                    addressInput.required = false;
+                    addressInput.value = '';
+                }
+            });
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            successMsg.classList.remove('visible');
+            errorMsg.classList.remove('visible');
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const item = document.getElementById('item').value.trim();
+            const quantity = document.getElementById('quantity').value.trim();
+            const date = document.getElementById('date').value;
+            const delivery = document.querySelector('input[name="delivery"]:checked')?.value || '';
+            const address = delivery === 'Delivery'
+                ? document.getElementById('address').value.trim()
+                : '';
+
+            if (!name || !email || !phone || !item || !quantity || !date || !delivery || (delivery === 'Delivery' && !address)) {
+                errorMsg.classList.add('visible');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = '⏳ Submitting...';
+
+            // Send to Google Sheets with email included
+            const sendForm = document.createElement('form');
+            sendForm.method = 'GET';
+            sendForm.action = SCRIPT_URL;
+            sendForm.target = 'googleSheetsSubmitFrame';
+            sendForm.style.display = 'none';
+
+            const values = {
+                name: name,
+                email: email,
+                phone: phone,
+                item: item,
+                quantity: quantity,
+                date: date,
+                delivery: delivery,
+                address: address
+            };
+
+            Object.entries(values).forEach(([key, value]) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = value;
+                sendForm.appendChild(input);
+            });
+
+            document.body.appendChild(sendForm);
+            sendForm.submit();
+
+            setTimeout(() => {
+                successMsg.classList.add('visible');
+                errorMsg.classList.remove('visible');
+                
+                // Hide form and show back home
+                form.style.display = 'none';
+                backHomeContainer.classList.add('visible');
+
+                submitBtn.disabled = false;
+                submitBtn.textContent = '🎯 Send Order Request';
+                sendForm.remove();
+            }, 1200);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#home') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<a href="index.html">Home</a>
